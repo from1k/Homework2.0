@@ -328,6 +328,29 @@ $ git log --oneline --graph
 ```
 > *Примечание: вывод команды ```git log --oneline --graph``` возможно был поврежден при копировании. Прошу прощения.*
 
+#### Пункт 10. Локально выполните pull.
+
++ Реализация:  
+```bash
+$ git pull origin main
+```
+
++ Терминал:
+```bash
+Username for 'https://github.com': from1k
+Password for 'https://from1k@github.com': 
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), done.
+From https://github.com/from1k/Homework2
+   71656ee..40f677d  main       -> origin/main
+Updating 71656ee..40f677d
+Fast-forward
+ hello_world.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
 </details>
 
 </details>
