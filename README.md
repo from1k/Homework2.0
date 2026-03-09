@@ -158,7 +158,9 @@ e04ac07 create hello_world.cpp (raw version)
 </details>
 
 ### Часть 2
-
+<details>
+<summary> Нажмите, чтобы раскрыть </summary>
+  
 #### Пункт 1. В локальной копии репозитория создайте локальную ветку patch1.
 
 + Реализация:
@@ -241,19 +243,47 @@ https://github.com/from1k/Homework2/pull/1
 
 > *Примечание: перед выполнением указанной команды необходимо выполнить установку дополнительных модулей с помощью ```sudo apt install hub```*
 
-#### Пункт 9. Проверьте, что история коммитов доступна в удалёный репозитории.
+#### Пункты 6 и 7. В локальной копии в ветке patch1 добавьте в исходный код комментарии + commit, push.
 
-+ Реализация:
-  
++ Реализация + часть вывода терминала:  
 ```bash
-$ git log --oneline
+$ nano hello_world.cpp
+$ git commit -am "added comment"
+[patch1 71656ee] added comment
+ 1 file changed, 1 insertion(+)
+$ git push
+```
+
++ Содержимое hello_world.cpp:
+```c
+#include <iostream>
+#include <string>
+
+//Programm asks username and print message
+int main()
+{
+  std::string name;
+  std::cout << "Enter your name: ";
+  std::cin >> name;
+  std::cout << "Hello world from " << name << std::endl; 
+  return 0;
+}
 ```
 + Терминал:
   
 ```bash
-6720bcf (HEAD -> main, origin/main, origin/HEAD) added user input
-e04ac07 create hello_world.cpp (raw version)
-5d377d4 Initial commit
+Username for 'https://github.com': ${GITHUB_USERNAME}
+Password for 'https://from1k@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 3 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 350 bytes | 350.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/from1k/Homework2
+   f3b1ab8..71656ee  patch1 -> patch1
 ```
+</details>
 
 </details>
