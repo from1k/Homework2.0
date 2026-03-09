@@ -51,7 +51,7 @@
 
 > *Примечание: первый commit через терминал был реализован на основе сырого файла hello_world.cpp, который создвется после первого commit'а в лабораторной  работе. Проблем это вызвать не должно, они бы появились, если бы в проекте не было commit'ов в целом. Initial commit'ом в [репозитории](https://github.com/from1k/Homework2/tree/main) является файл LICENSE* 
  
-3. Создайте файл hello_world.cpp в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу Hello world на языке C++ используя плохой стиль кода.
+#### 3. Создайте файл hello_world.cpp в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу Hello world на языке C++ используя плохой стиль кода.
    
 ```bash
 $ cd Homework2
@@ -69,11 +69,21 @@ int main()
   return 0;
 }
 ```
-4. Добавьте этот файл в локальную копию репозитория.
+#### 4. Добавьте этот файл в локальную копию репозитория.
 
++ Реализация:
+  
 ```bash
 $ git add hallo_world.cpp
 $ git commit -m "create hello_world.cpp (raw version)"
 ```
++ Терминал:
+  
+```bash
+[main e04ac07] create hello_world.cpp (raw version)
+ 1 file changed, 7 insertions(+)
+ create mode 100644 hello_world.cpp
+```
+
 
 </details>
