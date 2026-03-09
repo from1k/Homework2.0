@@ -239,7 +239,7 @@ $ git branch -r
 $ hub pull-request -b main -h patch1 -m "PR patch1 == main"
 https://github.com/from1k/Homework2/pull/1
 ```
-По [ссылке](https://github.com/from1k/Homework2/pull/1) будет создан Pull Request.
+По [ссылке](https://github.com/from1k/Homework2/pull/1) будет создан pull -equest.
 
 > *Примечание: перед выполнением указанной команды необходимо выполнить установку дополнительных модулей с помощью ```sudo apt install hub```*
 
@@ -270,7 +270,6 @@ int main()
 }
 ```
 + Терминал:
-  
 ```bash
 Username for 'https://github.com': ${GITHUB_USERNAME}
 Password for 'https://from1k@github.com': 
@@ -284,6 +283,51 @@ remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/from1k/Homework2
    f3b1ab8..71656ee  patch1 -> patch1
 ```
+
+#### Пункты 8. Проверьте, что новые изменения есть в pull-request.
+
++ Реализация + вывод терминала:  
+```bash
+$ git status
+On branch patch1
+Your branch is up to date with 'origin/patch1'.
+```
+> *Примечание: ```Your branch is up to date with 'origin/patch1'``` означает, что все изменения отправлены на удаленный репозиторий.*
+
+#### Пункт 9. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
+
++ Реализация + вывода терминала (покомандно):  
+```bash
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+$ git merge patch1
+Updating 6720bcf..71656ee
+Fast-forward
+ hello_world.cpp | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+
+$ git push
+Username for 'https://github.com': from1k
+Password for 'https://from1k@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/from1k/Homework2
+   6720bcf..71656ee  main -> main
+
+$ git branch -d patch1
+Deleted branch patch1 (was 71656ee).
+
+$ git log --oneline --graph
+* 40f677d (HEAD -> main, origin/main, origin/HEAD) comment was changed
+* 71656ee (origin/patch1, patch1) added comment
+* f3b1ab8 delete using namespace std
+* 6720bcf added user input
+* e04ac07 create hello_world.cpp (raw version)
+* 5d377d4 Initial commit
+```
+> *Примечание: вывод команды ```git log --oneline --graph``` возможно был поврежден при копировании. Прошу прощения.*
+
 </details>
 
 </details>
