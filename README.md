@@ -220,60 +220,27 @@ To https://github.com/from1k/Homework2
 branch 'patch1' set up to track 'origin/patch1'.
 ```
 
-#### Пункты 6 и 7. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивала имя пользователя. А в стандартный поток вывода печаталось сообщение Hello world from @name, где @name имя пользователя.
+#### Пункт 4. Проверьте, что ветка patch1 доступна в удалённом репозитории.
 
 + Реализация:
   
 ```bash
-$ nano hallo_world.cpp
-$ git commit -am "added user input"
+$ git branch -r
 ```
-+ Содержимое hello_world.cpp:
-```c
-#include <iostream>
-#include <string>
-using namespace std;
+> *Примечание: в списке должно находиться ```origin/pathc1```*
 
-int main()
-{
-  string name;
-  cout << "Enter your name: ";
-  cin >> name;
-  cout << "Hello world from " << name << endl; 
-  return 0;
-}
-```
-+ Терминал:
+#### Пункт 5. Создайте pull-request patch1 -> master.
+
++ Реализация + вывод терминала:
   
 ```bash
-[main 6720bcf] added user input
- 1 file changed, 7 insertions(+), 2 deletions(-)
+$ hub pull-request -b main -h patch1 -m "PR patch1 == main"
+https://github.com/from1k/Homework2/pull/1
 ```
-> *Примечание: нужно ли использовать ```git add``` повторно? Нет, ведь файл hello_world.cpp уже был добавлен ранее и Git его отслеживает. Поэтому Git знает, что этот файл изменился, и включит его в commit.*
+По [ссылке](https://github.com/from1k/Homework2/pull/1) будет создан Pull Request.
 
-#### Пункт 8. Запуште изменения в удалёный репозиторий.
+> *Примечание: перед выполнением указанной команды необходимо выполнить установку дополнительных модулей с помощью ```sudo apt install hub```*
 
-+ Реализация:
-  
-```bash
-$ git push -u origin main
-```
-+ Терминал:
-  
-```bash
-[main 6720bcf] added user input
-Username for 'https://github.com': from1k
-Password for 'https://from1k@github.com': 
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 3 threads
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 772 bytes | 772.00 KiB/s, done.
-Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://github.com/from1k/Homework2
-   5d377d4..6720bcf  main -> main
-branch 'main' set up to track 'origin/main'.
-```
 #### Пункт 9. Проверьте, что история коммитов доступна в удалёный репозитории.
 
 + Реализация:
