@@ -503,6 +503,7 @@ To https://github.com/from1k/GitExample.git
 $ hub pull-request -b master -h patch2 -m "pr patch2 --> master"
 https://github.com/from1k/GitExample/pull/2
 ```
+
 По [ссылке](https://github.com/from1k/GitExample/pull/2) будет создан pull request.
 
 #### Пункты 4 и 5. В ветке master в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык. Убедитесь, что в pull-request появились конфликтны.
@@ -628,52 +629,38 @@ int main()
   return 0;
 }
 ```
-> *Примечание: нужно ли использовать ```git add``` повторно? Нет, ведь файл hello_world.cpp уже был добавлен ранее и Git его отслеживает. Поэтому Git знает, что этот файл изменился, и включит его в commit.*
+> *Примечание: для того, чтобы устранить конфликт необходимо напрямую исправить файл (убрать конфликтные маркеры и оставить корректную часть кода).*
 
-#### Пункт 8. Запуште изменения в удалёный репозиторий.
+#### Пункт 7. Сделайте force push в ветку patch2
 
 + Реализация + bash:
   
 ```bash
-$ git push origin master
+$ git push origin patch2 --force
 
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
 Delta compression using up to 3 threads
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 759 bytes | 759.00 KiB/s, done.
-Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 380 bytes | 380.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To https://github.com/from1k/GitExample.git
-   6d7e0fd..42024e7  master -> master
+ + ffbca5e...60520f4 patch2 -> patch2 (forced update)
 ```
 
-#### Пункт 9. Проверьте, что история коммитов доступна в удалённом репозитории.
+#### Пункт 8. Убедитель, что в pull-request пропали конфликтны.
 
 + Реализация + bash:
   
 ```bash
-$ git log
-
-commit 42024e7be86e0e18aef8b34436feb77402c95f97 (HEAD -> master, origin/master)
-Author: from1k <ashubin2007@gmail.com>
-Date:   Tue Mar 10 11:04:41 2026 +0300
-
-    added print username
-
-commit c131ca984a8a895fb02eeb4bda746c4c30dc637e
-Author: from1k <ashubin2007@gmail.com>
-Date:   Tue Mar 10 10:58:06 2026 +0300
-
-    hello_world.cpp created
-
-commit 6d7e0fdab97beef98f23e9d907cd042652b2b86d
-Author: from1k <ashubin2007@gmail.com>
-Date:   Tue Mar 10 10:50:16 2026 +0300
-
-    Initial commit
+$ hub browse -- pulls
 ```
+
+> *Примечание: данная команда загрузит действующую страницу репозитория. Если конфликты отсутствуют, то можем продолжать. Также можно воспользоваться командами ```git status```, ```git log --oneline --graph```, ```git diff```.*
+> 
 </details>
 
 </details>
