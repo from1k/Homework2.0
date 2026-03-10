@@ -183,17 +183,28 @@ To https://github.com/from1k/GitExample.git
 
 #### Пункт 9. Проверьте, что история коммитов доступна в удалённом репозитории.
 
-+ Реализация:
++ Реализация + bash:
   
 ```bash
-$ git log --oneline
-```
-+ Терминал:
-  
-```bash
-6720bcf (HEAD -> main, origin/main, origin/HEAD) added user input
-e04ac07 create hello_world.cpp (raw version)
-5d377d4 Initial commit
+$ git log
+
+commit 42024e7be86e0e18aef8b34436feb77402c95f97 (HEAD -> master, origin/master)
+Author: from1k <ashubin2007@gmail.com>
+Date:   Tue Mar 10 11:04:41 2026 +0300
+
+    added print username
+
+commit c131ca984a8a895fb02eeb4bda746c4c30dc637e
+Author: from1k <ashubin2007@gmail.com>
+Date:   Tue Mar 10 10:58:06 2026 +0300
+
+    hello_world.cpp created
+
+commit 6d7e0fdab97beef98f23e9d907cd042652b2b86d
+Author: from1k <ashubin2007@gmail.com>
+Date:   Tue Mar 10 10:50:16 2026 +0300
+
+    Initial commit
 ```
 </details>
 
