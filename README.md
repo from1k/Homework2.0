@@ -135,11 +135,15 @@ $ git commit -m "hello_world.cpp created"
 
 #### Пункты 6 и 7. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивала имя пользователя. А в стандартный поток вывода печаталось сообщение Hello world from @name, где @name имя пользователя.
 
-+ Реализация:
++ Реализация + bash:
   
 ```bash
-$ nano hallo_world.cpp
-$ git commit -am "added user input"
+$ nano hello_world.cpp
+$ git add hello_world.cpp
+$ git commit -m "added print username"
+
+[master 42024e7] added print username
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 ```
 + Содержимое hello_world.cpp:
 ```c
@@ -156,37 +160,27 @@ int main()
   return 0;
 }
 ```
-+ Терминал:
-  
-```bash
-[main 6720bcf] added user input
- 1 file changed, 7 insertions(+), 2 deletions(-)
-```
 > *Примечание: нужно ли использовать ```git add``` повторно? Нет, ведь файл hello_world.cpp уже был добавлен ранее и Git его отслеживает. Поэтому Git знает, что этот файл изменился, и включит его в commit.*
 
 #### Пункт 8. Запуште изменения в удалёный репозиторий.
 
-+ Реализация:
++ Реализация + bash:
   
 ```bash
-$ git push -u origin main
-```
-+ Терминал:
-  
-```bash
-[main 6720bcf] added user input
-Username for 'https://github.com': ${GITHUB_USERNAME}
+$ git push origin master
+
+Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 7, done.
 Counting objects: 100% (7/7), done.
 Delta compression using up to 3 threads
 Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 772 bytes | 772.00 KiB/s, done.
+Writing objects: 100% (6/6), 759 bytes | 759.00 KiB/s, done.
 Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://github.com/from1k/Homework2
-   5d377d4..6720bcf  main -> main
-branch 'main' set up to track 'origin/main'.
+To https://github.com/from1k/GitExample.git
+   6d7e0fd..42024e7  master -> master
 ```
+
 #### Пункт 9. Проверьте, что история коммитов доступна в удалённом репозитории.
 
 + Реализация:
