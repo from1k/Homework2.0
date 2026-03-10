@@ -453,71 +453,57 @@ Deleted branch patch1 (was f440a4f).
 
 </details>
 
-### Часть 1
+### Часть 3
 <details>
 <summary> Нажмите, чтобы раскрыть </summary>  
 
-#### Пункты 1 и 2. Выполним в соответствии с командами, указанными в [Tutorial](https://github.com/tp-labs/lab02) и создадим пустой [репозиторий](https://github.com/from1k/GitExample), в котором будет происходит дальнейшая работа.
+#### Пункт 1. Создайте новую локальную ветку patch2.
 
 + Реализация + bash:  
 ```bash
-$ mkdir GitExample
-$ cd GitExample
-$ git init
+$ git checkout -b patch2
+Switched to a new branch 'patch2'
+```
+#### Пункт 2. Измените code style с помощью утилиты clang-format. Например, используя опцию -style=Mozilla.
 
-hint: Using 'master' as the name for the initial branch. This default branch name
-hint: is subject to change. To configure the initial branch name to use in all
-hint: of your new repositories, which will suppress this warning, call:
-hint: 
-hint:  git config --global init.defaultBranch <name>
-hint: 
-hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-hint: 'development'. The just-created branch can be renamed via this command:
-hint: 
-hint:  git branch -m <name>
-Initialized empty Git repository in /home/from1k/from1k/workspace/GitExample/.git/
++ Реализация:  
+```bash
+$ clang-format -style=Mozilla -i hello_world.cpp
+```
+> *Примечание: перед выполнением указанной команды необходимо выполнить установку дополнительных модулей с помощью ```sudo apt install clang-format```*
 
-$ echo "# GitExample" > README.md
-$ git add README.md
-$ git commit -m "Initial commit"
+#### Пункт 3. Выполните commit, push. Создайте pull-request patch2 -> master.
 
-[master (root-commit) 6d7e0fd] Initial commit
- 1 file changed, 1 insertion(+)
- create mode 100644 README.md
++ Реализация + bash:  
+```bash
+$ git add hello_world.cpp
+$ git commit -m "new style"
 
-$ git remote add origin https://github.com/from1k/GitExample.git
-$ git status
+[patch2 ffbca5e] new style
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-On branch master
-nothing to commit, working tree clean
-
-$ git log
-
-commit 6d7e0fdab97beef98f23e9d907cd042652b2b86d (HEAD -> master)
-Author: from1k <ashubin2007@gmail.com>
-Date:   Tue Mar 10 10:50:16 2026 +0300
-
-    Initial commit
-
-$ git push -u origin master
+$ git push origin patch2
 
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
-Enumerating objects: 3, done.
-Counting objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 3 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 364 bytes | 364.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'patch2' on GitHub by visiting:
+remote:      https://github.com/from1k/GitExample/pull/new/patch2
+remote: 
 To https://github.com/from1k/GitExample.git
- * [new branch]      master -> master
-branch 'master' set up to track 'origin/master'.
-```
+ * [new branch]      patch2 -> patch2
 
-#### Пункт 3. Создайте файл hello_world.cpp в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу Hello world на языке C++ используя плохой стиль кода.
-
-+ Реализация + bash:  
-```bash
-$ nano hello_world.cpp
+$ hub pull-request -b master -h patch2 -m "pr patch2 --> master"
+https://github.com/from1k/GitExample/pull/2
 ```
+По [ссылке](https://github.com/from1k/GitExample/pull/2) будет создан pull request.
 
 + Содержимое hello_world.cpp:
 ```c
