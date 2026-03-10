@@ -49,7 +49,7 @@
 <details>
 <summary> Нажмите, чтобы раскрыть </summary>  
 
-#### Пункты 1 и 2. Выполним в соответствии с командами, указанными в [Tutorial](https://github.com/tp-labs/lab02) и создадим пустой репозиторий, в котором будет происходит дальнейшая работа.
+#### Пункты 1 и 2. Выполним в соответствии с командами, указанными в [Tutorial](https://github.com/tp-labs/lab02) и создадим пустой [репозиторий](https://github.com/from1k/GitExample), в котором будет происходит дальнейшая работа.
 
 + Реализация + bash:  
 ```bash
@@ -103,10 +103,9 @@ branch 'master' set up to track 'origin/master'.
 
 #### Пункт 3. Создайте файл hello_world.cpp в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу Hello world на языке C++ используя плохой стиль кода.
 
-+ Реализация:  
++ Реализация + bash:  
 ```bash
-$ cd Homework2
-$ nano hello_world
+$ nano hello_world.cpp
 ```
 
 + Содержимое hello_world.cpp:
@@ -120,21 +119,20 @@ int main()
   return 0;
 }
 ```
+
 #### Пункты 4 и 5. Добавьте этот файл в локальную копию репозитория. Закоммитьте изменения с осмысленным сообщением.
 
-+ Реализация:
++ Реализация + bash:
   
 ```bash
-$ git add hallo_world.cpp
-$ git commit -m "create hello_world.cpp (raw version)"
-```
-+ Терминал:
-  
-```bash
-[main e04ac07] create hello_world.cpp (raw version)
- 1 file changed, 7 insertions(+)
+$ git add hello_world.cpp
+$ git commit -m "hello_world.cpp created"
+
+[master c131ca9] hello_world.cpp created
+ 1 file changed, 8 insertions(+)
  create mode 100644 hello_world.cpp
 ```
+
 #### Пункты 6 и 7. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивала имя пользователя. А в стандартный поток вывода печаталось сообщение Hello world from @name, где @name имя пользователя.
 
 + Реализация:
