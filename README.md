@@ -51,8 +51,56 @@
 
 #### Пункты 1 и 2. Выполним в соответствии с командами, указанными в [Tutorial](https://github.com/tp-labs/lab02) и создадим пустой репозиторий, в котором будет происходит дальнейшая работа.
 
-> *Примечание: первый commit через терминал был реализован на основе сырого файла hello_world.cpp, который создвется после первого commit'а в лабораторной  работе. Проблем это вызвать не должно, они бы появились, если бы в проекте не было commit'ов в целом. Initial commit'ом в [репозитории](https://github.com/from1k/Homework2/tree/main) является файл LICENSE* 
- 
++ Реализация + bash:  
+```bash
+$ mkdir GitExample
+$ cd GitExample
+$ git init
+
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:  git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:  git branch -m <name>
+Initialized empty Git repository in /home/from1k/from1k/workspace/GitExample/.git/
+
+$ echo "# GitExample" > README.md
+$ git add README.md
+$ git commit -m "Initial commit"
+
+[master (root-commit) 6d7e0fd] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+$ git remote add origin https://github.com/from1k/GitExample.git
+$ git status
+
+On branch master
+nothing to commit, working tree clean
+from1k@from1k-VirtualBox:~/from1k/workspace/GitExample$ git log
+commit 6d7e0fdab97beef98f23e9d907cd042652b2b86d (HEAD -> master)
+Author: from1k <ashubin2007@gmail.com>
+Date:   Tue Mar 10 10:50:16 2026 +0300
+
+    Initial commit
+
+$ git push -u origin master
+Username for 'https://github.com': from1k
+Password for 'https://from1k@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/from1k/GitExample.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+```
+
 #### Пункт 3. Создайте файл hello_world.cpp в локальной копии репозитория (который должен был появиться на шаге 2). Реализуйте программу Hello world на языке C++ используя плохой стиль кода.
 
 + Реализация:  
