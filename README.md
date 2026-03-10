@@ -82,7 +82,9 @@ $ git status
 
 On branch master
 nothing to commit, working tree clean
-from1k@from1k-VirtualBox:~/from1k/workspace/GitExample$ git log
+
+$ git log
+
 commit 6d7e0fdab97beef98f23e9d907cd042652b2b86d (HEAD -> master)
 Author: from1k <ashubin2007@gmail.com>
 Date:   Tue Mar 10 10:50:16 2026 +0300
@@ -90,6 +92,7 @@ Date:   Tue Mar 10 10:50:16 2026 +0300
     Initial commit
 
 $ git push -u origin master
+
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 3, done.
@@ -214,17 +217,14 @@ Date:   Tue Mar 10 10:50:16 2026 +0300
   
 #### Пункт 1. В локальной копии репозитория создайте локальную ветку patch1.
 
-+ Реализация:
++ Реализация + bash:
   
 ```bash
 $ git checkout -b patch1
-```
-+ Терминал:
-  
-```bash
 Switched to a new branch 'patch1'
 ```
-> *Примечание: ключ ```-b``` используется для того, чтобы сразу при создании новой ветки переключиться на нее.*
+
+> *Примечание: ключ ```-b``` используется для создания новой ветки и переключения на нее.*
  
 #### Пункт 2. Внесите изменения в ветке patch1 по исправлению кода и избавления от using namespace std.
 
@@ -247,30 +247,34 @@ int main()
   return 0;
 }
 ```
+
 #### Пункт 3. Выполняем commit, push локальную ветку в удалённый репозиторий.
 
-+ Реализация + вывод терминала:
++ Реализация + bash:
   
 ```bash
-$ git commit -am "delete using namespace std"
-[patch1 f3b1ab8] delete using namespace std
+$ git add hello_world.cpp
+$ git commit -m "deleted using namespace std"
+
+[patch1 d652a29] deleted using namespace std
  1 file changed, 4 insertions(+), 6 deletions(-)
-$ git push -u origin patch1
-Username for 'https://github.com': ${GITHUB_USERNAME}
+
+$ git push origin patch1
+
+Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 3 threads
 Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 413 bytes | 413.00 KiB/s, done.
+Writing objects: 100% (3/3), 418 bytes | 418.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 remote: 
 remote: Create a pull request for 'patch1' on GitHub by visiting:
-remote:      https://github.com/from1k/Homework2/pull/new/patch1
+remote:      https://github.com/from1k/GitExample/pull/new/patch1
 remote: 
-To https://github.com/from1k/Homework2
+To https://github.com/from1k/GitExample.git
  * [new branch]      patch1 -> patch1
-branch 'patch1' set up to track 'origin/patch1'.
 ```
 
 #### Пункт 4. Проверьте, что ветка patch1 доступна в удалённом репозитории.
@@ -278,19 +282,19 @@ branch 'patch1' set up to track 'origin/patch1'.
 + Реализация:
   
 ```bash
-$ git branch -r
+$ git branch -a
 ```
-> *Примечание: в списке должно находиться ```origin/pathc1```*
+> *Примечание: в списке должно находиться ```remotes/origin/pathc1```. Это будет означать что ветка успешно отправлена на GitHub. Также можно зайти на GitHub и убедиться что новая ветка появилась.*
 
 #### Пункт 5. Создайте pull-request patch1 -> master.
 
-+ Реализация + вывод терминала:
++ Реализация + bash:
   
 ```bash
-$ hub pull-request -b main -h patch1 -m "PR patch1 == main"
-https://github.com/from1k/Homework2/pull/1
+$ hub pull-request -b master -h patch1 -m "pr patch1 --> master"
+https://github.com/from1k/GitExample/pull/1
 ```
-По [ссылке](https://github.com/from1k/Homework2/pull/1) будет создан pull -equest.
+По [ссылке](https://github.com/from1k/GitExample/pull/1) будет создан pull request.
 
 > *Примечание: перед выполнением указанной команды необходимо выполнить установку дополнительных модулей с помощью ```sudo apt install hub```*
 
