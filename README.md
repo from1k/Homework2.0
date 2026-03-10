@@ -300,13 +300,27 @@ https://github.com/from1k/GitExample/pull/1
 
 #### Пункты 6 и 7. В локальной копии в ветке patch1 добавьте в исходный код комментарии + commit, push.
 
-+ Реализация + часть вывода терминала:  
++ Реализация + bash:  
 ```bash
 $ nano hello_world.cpp
-$ git commit -am "added comment"
-[patch1 71656ee] added comment
+$ git commit -m "added comment"
+
+[patch1 f440a4f] added comment
  1 file changed, 1 insertion(+)
-$ git push
+
+$ git push origin patch1
+
+Username for 'https://github.com': from1k
+Password for 'https://from1k@github.com': 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 3 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 352 bytes | 352.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/from1k/GitExample.git
+   d652a29..f440a4f  patch1 -> patch1
 ```
 
 + Содержимое hello_world.cpp:
@@ -324,30 +338,17 @@ int main()
   return 0;
 }
 ```
-+ Терминал:
-```bash
-Username for 'https://github.com': ${GITHUB_USERNAME}
-Password for 'https://from1k@github.com': 
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 3 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 350 bytes | 350.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To https://github.com/from1k/Homework2
-   f3b1ab8..71656ee  patch1 -> patch1
-```
 
 #### Пункты 8. Проверьте, что новые изменения есть в pull-request.
 
-+ Реализация + вывод терминала:  
++ Реализация + bash:  
 ```bash
 $ git status
+
 On branch patch1
 Your branch is up to date with 'origin/patch1'.
 ```
-> *Примечание: ```Your branch is up to date with 'origin/patch1'``` означает, что все изменения отправлены на удаленный репозиторий.*
+> *Примечание: ```Your branch is up to date with 'origin/patch1'``` означает, что все изменения отправлены на удаленный репозиторий. Также в это можно убедиться на самом GitHub или прописать ```hub browse -- pulls```*
 
 #### Пункт 9. В удалённый репозитории выполните слияние PR patch1 -> master и удалите ветку patch1 в удаленном репозитории.
 
