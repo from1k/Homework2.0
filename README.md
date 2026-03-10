@@ -56,7 +56,6 @@
 $ mkdir GitExample
 $ cd GitExample
 $ git init
-
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
 hint: of your new repositories, which will suppress this warning, call:
@@ -72,19 +71,16 @@ Initialized empty Git repository in /home/from1k/from1k/workspace/GitExample/.gi
 $ echo "# GitExample" > README.md
 $ git add README.md
 $ git commit -m "Initial commit"
-
 [master (root-commit) 6d7e0fd] Initial commit
  1 file changed, 1 insertion(+)
  create mode 100644 README.md
 
 $ git remote add origin https://github.com/from1k/GitExample.git
 $ git status
-
 On branch master
 nothing to commit, working tree clean
 
 $ git log
-
 commit 6d7e0fdab97beef98f23e9d907cd042652b2b86d (HEAD -> master)
 Author: from1k <ashubin2007@gmail.com>
 Date:   Tue Mar 10 10:50:16 2026 +0300
@@ -92,7 +88,6 @@ Date:   Tue Mar 10 10:50:16 2026 +0300
     Initial commit
 
 $ git push -u origin master
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 3, done.
@@ -130,7 +125,6 @@ int main()
 ```bash
 $ git add hello_world.cpp
 $ git commit -m "hello_world.cpp created"
-
 [master c131ca9] hello_world.cpp created
  1 file changed, 8 insertions(+)
  create mode 100644 hello_world.cpp
@@ -144,7 +138,6 @@ $ git commit -m "hello_world.cpp created"
 $ nano hello_world.cpp
 $ git add hello_world.cpp
 $ git commit -m "added print username"
-
 [master 42024e7] added print username
  1 file changed, 7 insertions(+), 2 deletions(-)
 ```
@@ -171,7 +164,6 @@ int main()
   
 ```bash
 $ git push origin master
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 7, done.
@@ -190,7 +182,6 @@ To https://github.com/from1k/GitExample.git
   
 ```bash
 $ git log
-
 commit 42024e7be86e0e18aef8b34436feb77402c95f97 (HEAD -> master, origin/master)
 Author: from1k <ashubin2007@gmail.com>
 Date:   Tue Mar 10 11:04:41 2026 +0300
@@ -255,12 +246,10 @@ int main()
 ```bash
 $ git add hello_world.cpp
 $ git commit -m "deleted using namespace std"
-
 [patch1 d652a29] deleted using namespace std
  1 file changed, 4 insertions(+), 6 deletions(-)
 
 $ git push origin patch1
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 5, done.
@@ -304,12 +293,10 @@ https://github.com/from1k/GitExample/pull/1
 ```bash
 $ nano hello_world.cpp
 $ git commit -m "added comment"
-
 [patch1 f440a4f] added comment
  1 file changed, 1 insertion(+)
 
 $ git push origin patch1
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 5, done.
@@ -344,7 +331,6 @@ int main()
 + Реализация + bash:  
 ```bash
 $ git status
-
 On branch patch1
 Your branch is up to date with 'origin/patch1'.
 ```
@@ -355,25 +341,21 @@ Your branch is up to date with 'origin/patch1'.
 + Реализация + bash:  
 ```bash
 $ git checkout master
-
 Switched to branch 'master'
 Your branch is up to date with 'origin/master'.
 
 $ git pull origin master
-
 From https://github.com/from1k/GitExample
  * branch            master     -> FETCH_HEAD
 Already up to date.
 
 $ git merge patch1
-
 Updating 42024e7..f440a4f
 Fast-forward
  hello_world.cpp | 11 +++++------
  1 file changed, 5 insertions(+), 6 deletions(-)
 
 $ git push origin master
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
@@ -381,7 +363,6 @@ To https://github.com/from1k/GitExample.git
    42024e7..f440a4f  master -> master
 
 $ git push origin --delete patch1
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 To https://github.com/from1k/GitExample.git
@@ -393,12 +374,10 @@ To https://github.com/from1k/GitExample.git
 + Реализация + bash:  
 ```bash
 $ git checkout master
-
 Already on 'master'
 Your branch is up to date with 'origin/master'.
 
 $ git pull origin master
-
 From https://github.com/from1k/GitExample
  * branch            master     -> FETCH_HEAD
 Already up to date.
@@ -410,7 +389,6 @@ Already up to date.
 + Реализация + bash:  
 ```bash
 $ git log
-
 commit f440a4f331bd969d3c57b5fb0b2f94668dae0df8 (HEAD -> master, origin/master, patch1)
 Author: from1k <ashubin2007@gmail.com>
 Date:   Tue Mar 10 12:04:03 2026 +0300
@@ -478,12 +456,10 @@ $ clang-format -style=Mozilla -i hello_world.cpp
 ```bash
 $ git add hello_world.cpp
 $ git commit -m "new style"
-
 [patch2 ffbca5e] new style
  1 file changed, 9 insertions(+), 8 deletions(-)
 
 $ git push origin patch2
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 5, done.
@@ -514,12 +490,10 @@ https://github.com/from1k/GitExample/pull/2
 $ nano hello_world.cpp
 $ add hello_world.cpp
 $ git commit -m "added print username"
-
 [master 42024e7] added print username
  1 file changed, 7 insertions(+), 2 deletions(-)
 
 $ git push origin master
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 7, done.
@@ -576,7 +550,6 @@ int main()
   
 ```bash
 $ git pull origin master --rebase
-
 From https://github.com/from1k/GitExample
  * branch            master     -> FETCH_HEAD
 Auto-merging hello_world.cpp
@@ -608,7 +581,6 @@ no changes added to commit (use "git add" and/or "git commit -a")
 $ nano hello_world.cpp
 $ git add hello_world.cpp
 $ git rebase --continue
-
 [detached HEAD 60520f4] new style
  1 file changed, 9 insertions(+), 8 deletions(-)
 Successfully rebased and updated refs/heads/patch2.
@@ -637,7 +609,6 @@ int main()
   
 ```bash
 $ git push origin patch2 --force
-
 Username for 'https://github.com': from1k
 Password for 'https://from1k@github.com': 
 Enumerating objects: 5, done.
@@ -660,7 +631,63 @@ $ hub browse -- pulls
 ```
 
 > *Примечание: данная команда загрузит действующую страницу репозитория. Если конфликты отсутствуют, то можем продолжать. Также можно воспользоваться командами ```git status```, ```git log --oneline --graph```, ```git diff```.*
-> 
+
+
+#### Пункт 9. Вмержите pull-request patch2 -> master.
+
++ Реализация + bash:
+  
+```bash
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+$ git pull origin master
+From https://github.com/from1k/GitExample
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+$ git merge patch2
+Updating 97166c0..60520f4
+Fast-forward
+ hello_world.cpp | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+
+$ git push origin master
+Username for 'https://github.com': from1k
+Password for 'https://from1k@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/from1k/GitExample.git
+   97166c0..60520f4  master -> master
+
+$ git push origin --delete patch2
+Username for 'https://github.com': from1k
+Password for 'https://from1k@github.com': 
+To https://github.com/from1k/GitExample.git
+ - [deleted]         patch2
+
+$ git branch -d patch2
+Deleted branch patch2 (was 60520f4).
+```
+
++ Конечное содержимое hello_world.cpp:
+```c
+#include <iostream>
+#include <string>
+
+//Programm asks username and print message
+int main()
+{
+  std::string name;
+  std::cout << "Enter your name: ";
+  std::cin >> name;
+  std::cout << "Hello world from " << name << std::endl; 
+  return 0;
+}
+```
+
+> *Примечание: последние 2 команды удаляют ветку с удаленного и локального репозитория.*
+
 </details>
 
 </details>
