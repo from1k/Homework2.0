@@ -505,55 +505,126 @@ https://github.com/from1k/GitExample/pull/2
 ```
 По [ссылке](https://github.com/from1k/GitExample/pull/2) будет создан pull request.
 
-+ Содержимое hello_world.cpp:
-```c
-#include <iostream>
-using namespace std;
-
-int main()
-{
-  cout << "Hello world" << endl;
-  return 0;
-}
-```
-
-#### Пункты 4 и 5. Добавьте этот файл в локальную копию репозитория. Закоммитьте изменения с осмысленным сообщением.
-
-+ Реализация + bash:
-  
-```bash
-$ git add hello_world.cpp
-$ git commit -m "hello_world.cpp created"
-
-[master c131ca9] hello_world.cpp created
- 1 file changed, 8 insertions(+)
- create mode 100644 hello_world.cpp
-```
-
-#### Пункты 6 и 7. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивала имя пользователя. А в стандартный поток вывода печаталось сообщение Hello world from @name, где @name имя пользователя.
+#### Пункты 4 и 5. В ветке master в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык. Убедитесь, что в pull-request появились конфликтны.
 
 + Реализация + bash:
   
 ```bash
 $ nano hello_world.cpp
-$ git add hello_world.cpp
+$ add hello_world.cpp
 $ git commit -m "added print username"
 
 [master 42024e7] added print username
  1 file changed, 7 insertions(+), 2 deletions(-)
+
+$ git push origin master
+
+Username for 'https://github.com': from1k
+Password for 'https://from1k@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 3 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 759 bytes | 759.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/from1k/GitExample.git
+   6d7e0fd..42024e7  master -> master
+
+$ git merge origin/master
+Auto-merging hello_world.cpp
+CONFLICT (content): Merge conflict in hello_world.cpp
+Automatic merge failed; fix conflicts and then commit the result.
 ```
-+ Содержимое hello_world.cpp:
+
++ Содержимое hello_world.cpp в master:
 ```c
 #include <iostream>
 #include <string>
-using namespace std;
 
+//Programm asks username and print hello world from @user
 int main()
 {
-  string name;
-  cout << "Enter your name: ";
-  cin >> name;
-  cout << "Hello world from " << name << endl; 
+  std::string name;
+  std::cout << "Enter your name: ";
+  std::cin >> name;
+  std::cout << "Hello world from " << name << std::endl; 
+  return 0;
+}
+```
+
++ Содержимое hello_world.cpp в patch2:
+```c
+#include <iostream>
+#include <string>
+
+//Programm asks username and print message
+int main()
+{
+  std::string name;
+  std::cout << "Enter your name: ";
+  std::cin >> name;
+  std::cout << "Hello world from " << name << std::endl; 
+  return 0;
+}
+```
+> *Примечание: при попытке вмержить patch2 в master появляется ошибка ```CONFLICT (content): Merge conflict in hello_world.cpp```. Слияние не будет выолнено, пока не будет исправлен конфликт.*
+
+#### Пункт 6. Для этого локально выполните pull + rebase и исправьте конфликты.
+
++ Реализация + bash:
+  
+```bash
+$ git pull origin master --rebase
+
+From https://github.com/from1k/GitExample
+ * branch            master     -> FETCH_HEAD
+Auto-merging hello_world.cpp
+CONFLICT (content): Merge conflict in hello_world.cpp
+error: could not apply ffbca5e... new style
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply ffbca5e... new style
+
+$ git status
+interactive rebase in progress; onto 97166c0
+Last command done (1 command done):
+   pick ffbca5e new style
+No commands remaining.
+You are currently rebasing branch 'patch2' on '97166c0'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+ both modified:   hello_world.cpp
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ nano hello_world.cpp
+$ git add hello_world.cpp
+$ git rebase --continue
+
+[detached HEAD 60520f4] new style
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+Successfully rebased and updated refs/heads/patch2.
+```
+
++ Содержимое hello_world.cpp в master:
+```c
+#include <iostream>
+#include <string>
+
+//Programm asks username and print message
+int main()
+{
+  std::string name;
+  std::cout << "Enter your name: ";
+  std::cin >> name;
+  std::cout << "Hello world from " << name << std::endl; 
   return 0;
 }
 ```
